@@ -42,7 +42,7 @@ jobs:
           REGEX='\b[A-Z]{2,5}-\d{4,6}\b'
           echo $COMMIT_MESSAGE
           echo $REGEX
-          if [[ "$COMMIT_MESSAGE" =~ $REGEX ]]; then
+          if [[ ${{ env.COMMIT_MESSAGE }} =~ "$REGEX" ]]; then
             MESSAGE="Match Found"
           else
             MESSAGE="Nothing Found"
