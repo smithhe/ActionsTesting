@@ -37,7 +37,8 @@ jobs:
 
       - name: Parse Message
         run: |
-          if [[ "hello" =~ ^hel ]]; then
+          REGEX='^hel'
+          if [[ "hello" =~ $REGEX ]]; then
             echo "Matched!"
           fi
           
