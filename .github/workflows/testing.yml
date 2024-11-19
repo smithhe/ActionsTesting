@@ -32,7 +32,7 @@ jobs:
 
       - name: Parse Message
         run: |
-          if [[ "${{ env.COMMIT_MESSAGE }}" ~= '\b[A-Z]{2,5}-\d{4,6}\b' ]]; then
+          if [[ "${{ env.COMMIT_MESSAGE }}" ~= \b[A-Z]{2,5}-\d{4,6}\b ]]; then
             echo "Found ticket number: ${BASH_REMATCH[0]}"
           else
             echo "No Match"
