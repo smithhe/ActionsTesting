@@ -36,6 +36,8 @@ jobs:
         run: echo "COMMIT_MESSAGE=$(git log -1 --pretty=%B | tr -d '\n' | sed 's/"/\\"/g')" >> $GITHUB_ENV
 
       - name: Parse Message
+        env:
+          COMMIT_MESSAGE: ${{ env.COMMIT_MESSAGE }}
         run: |
           REGEX='\b[A-Z]{2,5}-\d{4,6}\b'
           if [[ "hello" =~ $REGEX ]]; then
