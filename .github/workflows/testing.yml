@@ -41,9 +41,9 @@ jobs:
         run: |
           REGEX='\b[A-Z]{2,5}-\d{4,6}\b'
           if [[ $COMMIT_MESSAGE =~ $REGEX ]]; then
-            MESSAGE="YUP"
+            MESSAGE="Match Found"
           else
-            MESSAGE="Nope"
+            MESSAGE="Nothing Found"
           fi
           echo $MESSAGE
           
