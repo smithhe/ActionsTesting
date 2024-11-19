@@ -32,5 +32,8 @@ jobs:
 
       - name: Parse Message
         run: |
-          MATCH=$(echo "${{ env.COMMIT_MESSAGE }}" | grep -Eo '\b[A-Z]{2,5}-\d{4,6}\b')
-          echo "Found ticket number: $MATCH"
+          if [[ "${{ env.COMMIT_MESSAGE }}" ~= '\b[A-Z]{2,5}-\d{4,6}\b' ]]; then
+            echo "Found ticket number: ${BASH_REMATCH[0]}"
+          else
+            echo "No Match"
+          fi
