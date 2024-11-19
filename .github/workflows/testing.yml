@@ -32,5 +32,5 @@ jobs:
 
       - name: Parse Message
         run: |
-          MATCH=$(echo "${{ env.COMMIT_MESSAGE }}" | grep -Eo '\b[A-Z]{2,5}-\d{4,6}\b')
+          MATCH=$(echo "$COMMIT_MESSAGE" | grep -Eo '\b[A-Z]{2,5}-\d{4,6}\b')
           echo "Found ticket number: $MATCH"
