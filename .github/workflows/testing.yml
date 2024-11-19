@@ -43,7 +43,7 @@ jobs:
           echo $COMMIT_MESSAGE
           echo $REGEX
           if [[ $COMMIT_MESSAGE =~ $REGEX ]]; then
-            MESSAGE="Match Found"
+            MESSAGE="Match Found ${BASH_REMATCH[0]}"
           else
             MESSAGE="Nothing Found"
           fi
