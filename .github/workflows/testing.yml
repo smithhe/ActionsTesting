@@ -35,9 +35,9 @@ jobs:
           MATCH=$(echo "${{ env.COMMIT_MESSAGE }}" | grep -Eo '\b[A-Z]{2,5}-\d{4,6}\b')
           
           if [[ -n "$MATCH" ]]; then
-            echo "Found ticket number: $MATCH"
-            echo "ticket_number=$MATCH" >> $GITHUB_OUTPUT
+            echo "Found ticket number: $MATCH";
+            echo "ticket_number=$MATCH" >> $GITHUB_OUTPUT;
           else
-            echo "Found no ticket number"
-            echo "ticket_number=Ticket Not Provided" >> $GITHUB_OUTPUT
+            echo "Found no ticket number";
+            echo "ticket_number=Ticket Not Provided" >> $GITHUB_OUTPUT;
           fi
