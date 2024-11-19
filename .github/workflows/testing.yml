@@ -37,7 +37,7 @@ jobs:
 
       - name: Parse Message
         run: |
-          REGEX='^hel'
+          REGEX='\b[A-Z]{2,5}-\d{4,6}\b'
           if [[ "hello" =~ $REGEX ]]; then
             echo "Matched!"
           fi
