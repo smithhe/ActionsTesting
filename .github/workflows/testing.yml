@@ -39,8 +39,9 @@ jobs:
         env:
           COMMIT_MESSAGE: ${{ env.COMMIT_MESSAGE }}
         run: |
-          echo $COMMIT_MESSAGE
           REGEX='\b[A-Z]{2,5}-\d{4,6}\b'
+          echo $COMMIT_MESSAGE
+          echo $REGEX
           if [[ "$COMMIT_MESSAGE" =~ $REGEX ]]; then
             MESSAGE="Match Found"
           else
