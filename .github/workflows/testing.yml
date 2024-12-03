@@ -18,6 +18,10 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -34,6 +38,9 @@ jobs:
       - name: Get last commit message
         id: get_commit_message
         run: echo "COMMIT_MESSAGE=$(git log -1 --pretty=%B | tr -d '\n' | sed 's/"/\\"/g')" >> $GITHUB_ENV
+
+      - name: Sleep
+        run: sleep 10
 
       - name: Parse Message
         env:
