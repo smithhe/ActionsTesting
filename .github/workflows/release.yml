@@ -1,0 +1,18 @@
+name: Release Version Action
+
+on:
+  release:
+    types: [published]  # Trigger only when a release is published
+
+jobs:
+  print-version:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Get version from release tag
+      run: |
+        VERSION=$(echo "${GITHUB_REF}" | sed 's/refs\/tags\///')
+        echo "Release version: $VERSION"
