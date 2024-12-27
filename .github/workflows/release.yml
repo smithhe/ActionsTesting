@@ -14,5 +14,6 @@ jobs:
 
     - name: Get version from release tag
       run: |
-        VERSION=$(echo "${GITHUB_REF}" | sed 's/refs\/tags\///')
+        # Extract the version from the tag reference and remove 'v' if present at the start
+        VERSION=$(echo "${GITHUB_REF}" | sed 's/refs\/tags\/v\?//')
         echo "Release version: $VERSION"
